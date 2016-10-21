@@ -1,0 +1,16 @@
+#!/bin/sh
+export SHOUTCAST_URL="http://myshoutcastapi/admin.cgi?sid=1&mode=viewxml"
+export SHOUTCAST_AUTH="Basic dXNlcjpwYXNzd29yZA=="
+export MASTER_KEY="p@r$3-mA&7er-k3y"
+export APPLICATION_NAME="parseApplicationName"
+export LYRICS_SEARCH_API="https://mylyricswebsite/lyrics?callback=LetrasSug&q="
+export LYRICS_PREFIX="https://lyricswebsite/"
+export ALBUM_ART_SEARCH_API="https://api.spotify.com/v1/search&offset=0&limit=2&type=track&query="
+
+echo "SHOUTCAST_URL        = $SHOUTCAST_URL"
+echo "SHOUTCAST_AUTH       = $SHOUTCAST_AUTH"
+echo "MASTER_KEY           = $MASTER_KEY"
+echo "APPLICATION_NAME     = $APPLICATION_NAME"
+echo "LYRICS_SEARCH_API    = $LYRICS_SEARCH_API"
+echo "LYRICS_PREFIX        = $LYRICS_PREFIX"
+echo "ALBUM_ART_SEARCH_API = $ALBUM_ART_SEARCH_API"
