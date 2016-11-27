@@ -18,6 +18,8 @@ function radioDidStartSong(currentSongTitle) {
 }
 
 Parse.Cloud.define('updateCurrentSong', function(request, res) {
+    Parse.Cloud.useMasterKey();
+
     Parse.Promise
         .when([
             Parse.Cloud.run('getShoutCastCurrentSong'),

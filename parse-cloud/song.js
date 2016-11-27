@@ -28,6 +28,8 @@ function getSongByTag(tag) {
 }
 
 Parse.Cloud.define("getSongs", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     var page = request.params.page || 0;
     getSongs(page)
         .then(function(result) {
@@ -38,6 +40,8 @@ Parse.Cloud.define("getSongs", function(request, response) {
 });
 
 Parse.Cloud.define("songById", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     var songId = request.params.songId;
     getSongById(songId)
         .then(function(song) {
@@ -52,6 +56,8 @@ Parse.Cloud.define("songById", function(request, response) {
 });
 
 Parse.Cloud.define("songByTag", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     var songName = request.params.tag;
     var artistName = '';
     var tag = Utils.tagsWithSpace(songName);
@@ -83,6 +89,8 @@ Parse.Cloud.define("songByTag", function(request, response) {
 });
 
 Parse.Cloud.define("addSong", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     var songName = request.params.songName;
     var artistName = request.params.artistName;
     var tag = request.params.tag;

@@ -16,6 +16,8 @@ function getArtistByTag(tag) {
 }
 
 Parse.Cloud.define("artistByName", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     var artistName = request.params.artistName;
     if (!artistName || artistName.length == 0) {
         response.success(null);
@@ -38,6 +40,8 @@ Parse.Cloud.define("artistByName", function(request, response) {
 });
 
 Parse.Cloud.define("addArtist", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     var artistName = request.params.artistName;
     var tag = request.params.tag;
 

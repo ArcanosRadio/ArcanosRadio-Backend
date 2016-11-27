@@ -2,6 +2,8 @@ var Utils = require('./utils');
 var SHOUTCAST_URL = process.env.SHOUTCAST_URL;
 
 Parse.Cloud.define('getShoutCastCurrentSong', function(request, res) {
+    Parse.Cloud.useMasterKey();
+
     var randomGenerator = parseInt(Math.random() * new Date());
 
     Parse.Cloud.httpRequest({

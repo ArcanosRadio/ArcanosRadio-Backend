@@ -5,6 +5,8 @@ var LYRICS_SEARCH_API = process.env.LYRICS_SEARCH_API;
 var LYRICS_PREFIX = process.env.LYRICS_PREFIX;
 
 Parse.Cloud.define('getLyricsParseFile', function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     getLyricsParseFile(request.params.songName, request.params.artistName)
         .then(function(lyrics) {
             response.success(lyrics);

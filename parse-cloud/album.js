@@ -2,6 +2,8 @@ var Utils = require('./utils');
 var ALBUM_ART_SEARCH_API = process.env.ALBUM_ART_SEARCH_API;
 
 Parse.Cloud.define("getAlbumImageUrl", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     getAlbumImageUrl(request.params.songName, request.params.artistName)
         .then(function(url) {
             response.success(url);
@@ -11,6 +13,8 @@ Parse.Cloud.define("getAlbumImageUrl", function(request, response) {
 });
 
 Parse.Cloud.define("getAlbumImage", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     getAlbumImage(request.params.songName, request.params.artistName)
         .then(function(img) {
             response.success(img);
@@ -20,6 +24,8 @@ Parse.Cloud.define("getAlbumImage", function(request, response) {
 });
 
 Parse.Cloud.define("getAlbumImageParseFile", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     getAlbumImageParseFile(request.params.songName, request.params.artistName)
         .then(function(img) {
             response.success(img);

@@ -27,6 +27,8 @@ function addLyricsToSong(songId) {
 }
 
 Parse.Cloud.define("addLyricsToSong", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     addLyricsToSong(request.params.songId)
         .then(function(song){
             response.success(song.get("songName") + " => " + song.get("lyrics"));
@@ -46,6 +48,8 @@ function songsWithoutLyricsState() {
 }
 
 Parse.Cloud.define("songsWithoutLyricsState", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     songsWithoutLyricsState()
         .then(function(ids) {
             response.success(ids);
@@ -55,6 +59,8 @@ Parse.Cloud.define("songsWithoutLyricsState", function(request, response) {
 });
 
 Parse.Cloud.define("fixSomeSongsWithoutLyricsState", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     songsWithoutLyricsState()
     .then(function(ids) {
         var promises = [];
@@ -78,6 +84,8 @@ Parse.Cloud.define("fixSomeSongsWithoutLyricsState", function(request, response)
 });
 
 Parse.Cloud.define("addAlbumArtToSong", function(request, response) {
+    Parse.Cloud.useMasterKey();
+
     addAlbumArtToSong(request.params.songId, request.params.imageUrl)
         .then(function(results) {
             response.success(results);
